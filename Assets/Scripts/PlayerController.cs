@@ -2,13 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using TMPro;
+using Coherence;
+using Coherence.Toolkit;
+using Coherence.UI;
 public class PlayerController : MonoBehaviour
 {
+    public TextMeshProUGUI inventoryText;
+    public TextMeshProUGUI playerName;
+    public string playerNameString;
     public int R = 255;
     public int G = 255;
     public int B = 255;
     public GameObject potatoPrefab;
-    [HideInInspector]
     public int actualInventory = 0;
     private Rigidbody _rigidBody;
     private float _dropOffsetHorizontal = 1f;
@@ -16,26 +22,52 @@ public class PlayerController : MonoBehaviour
     private float _minDropForce = 40f;
     private float _dropForce = 50f;
 
+    private CoherenceSync _coherenceSync;
+    private CoherenceMonoBridge _monoBridge;
+    private void Awake()
+    {
+        _monoBridge = FindObjectOfType<CoherenceMonoBridge>();
+        _monoBridge.onLiveQuerySynced.AddListener(MonoBridgeOnOnLiveQuerySynced);
+    }
+    private void MonoBridgeOnOnLiveQuerySynced(CoherenceMonoBridge obj)
+    {
+        _coherenceSync = this.gameObject.GetComponent<CoherenceSync>();
+    }
     void Start()
     {
+        playerNameString = WorldsConnectDialog.PlayerName;
         _rigidBody = GetComponent<Rigidbody>();
 
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-
+        inventoryText.text = $"{actualInventory}";
+        playerName.text = $"{playerNameString}";
     }
 
     public FoodModel DownloadFood()
     {
         FoodModel food = new FoodModel(R, G, B, actualInventory);
-        // actualInventory = 0;
+        actualInventory = 0;
         return food;
     }
 
     public void DropPotatoes()
+    {
+        _coherenceSync = this.gameObject.GetComponent<CoherenceSync>();
+        if (_coherenceSync.HasStateAuthority)
+        {
+            DropPotatoesNet();
+        }
+        else
+        {
+            _coherenceSync.SendCommand<PlayerController>(nameof(PlayerController.DropPotatoesNet), MessageTarget.AuthorityOnly);
+        }
+
+    }
+    public void DropPotatoesNet()
     {
         if (actualInventory > 0)
         {

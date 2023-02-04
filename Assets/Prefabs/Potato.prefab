@@ -230,7 +230,7 @@ MonoBehaviour:
     archetypeName: Potato_7b26dea2e6325194797da1fea6060743
     GeneratesArchetypeDefinition: 1
   InterpolationLocation: 1
-  bakedScriptType: Coherence.Generated.CoherenceSyncPotato, Assembly-CSharp
+  bakedScriptType: Coherence.Generated.CoherenceSyncPotato_id2, Assembly-CSharp
   approveAuthorityTransferRequests: 1
   simulationType: 0
   authorityTransferType: 2
