@@ -15,7 +15,7 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
   m_Fog: 1
-  m_FogColor: {r: 1, g: 0.5917582, b: 0.21226418, a: 1}
+  m_FogColor: {r: 0.7545904, g: 0.754717, b: 0.750445, a: 1}
   m_FogMode: 1
   m_FogDensity: 0.01
   m_LinearFogStart: 0
@@ -401,6 +401,26 @@ PrefabInstance:
     - target: {fileID: 140762392064612504, guid: 74ac5cd3d5d0a024eaa91f94831a8a6d, type: 3}
       propertyPath: m_Name
       value: Sun
+      objectReference: {fileID: 0}
+    - target: {fileID: 140762392064612505, guid: 74ac5cd3d5d0a024eaa91f94831a8a6d, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 140762392064612505, guid: 74ac5cd3d5d0a024eaa91f94831a8a6d, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 140762392064612505, guid: 74ac5cd3d5d0a024eaa91f94831a8a6d, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 140762392064612505, guid: 74ac5cd3d5d0a024eaa91f94831a8a6d, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 140762392064612505, guid: 74ac5cd3d5d0a024eaa91f94831a8a6d, type: 3}
+      propertyPath: m_Intensity
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 74ac5cd3d5d0a024eaa91f94831a8a6d, type: 3}
