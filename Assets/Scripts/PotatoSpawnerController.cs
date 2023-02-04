@@ -1,7 +1,8 @@
 using UnityEngine;
 using System.Collections;
 using Random = UnityEngine.Random;
-
+using Coherence.Toolkit;
+using Coherence;
 public class PotatoSpawnerController : MonoBehaviour
 {
     public static PotatoSpawnerController instance { get; private set; }
@@ -10,9 +11,14 @@ public class PotatoSpawnerController : MonoBehaviour
     private float _spawnCD = 2f;
     private float _minSpawnCD = 0.5f;
     private float _currentSpawnCD = 0f;
+    private CoherenceSync _coherenceSync;
+    private CoherenceMonoBridge _monoBridge;
+
 
     private void Awake()
     {
+        _monoBridge = FindObjectOfType<CoherenceMonoBridge>();
+        _monoBridge.onLiveQuerySynced.AddListener(MonoBridgeOnOnLiveQuerySynced);
         if (instance != null && instance != this)
         {
             Destroy(this);
@@ -21,6 +27,10 @@ public class PotatoSpawnerController : MonoBehaviour
         {
             instance = this;
         }
+    }
+    private void MonoBridgeOnOnLiveQuerySynced(CoherenceMonoBridge obj)
+    {        
+        _coherenceSync = this.gameObject.GetComponent<CoherenceSync>();
     }
 
     void Update()
@@ -32,12 +42,17 @@ public class PotatoSpawnerController : MonoBehaviour
         else
         {
             _currentSpawnCD = _minSpawnCD + _spawnCD * Random.value;
-            SpawnPotato();
+            if (_coherenceSync.HasStateAuthority){
+                SpawnPotato();
+            }else{
+                _coherenceSync.SendCommand<PotatoSpawnerController>(nameof(PotatoSpawnerController.SpawnPotato), MessageTarget.AuthorityOnly);
+            }
+
         }
 
     }
 
-    private void SpawnPotato()
+    public void SpawnPotato()
     {
         Vector3 randomPos = new Vector3(GetRandomInRange(), transform.position.y, GetRandomInRange());
         GameObject potato = Instantiate(prefabToSpawn, randomPos, Quaternion.identity, transform);

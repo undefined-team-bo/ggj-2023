@@ -12,11 +12,17 @@ namespace Coherence.Generated
 	{
 		public const int Player_2f37b1be90c58714f91aba02c042dfd9Index = 0;
 		public const int Tree_c9d321b103129184eb302bb638fd65acIndex = 1;
+		public const int Potato_7b26dea2e6325194797da1fea6060743Index = 2;
+		public const int PotatoSpawner_77b0867e586553a4d99ad1c7f3bfcb08Index = 3;
 
 		public static Dictionary<string, int> IndexForName = new Dictionary<string, int>() {
 			{ "Player_2f37b1be90c58714f91aba02c042dfd9", 0 },
 
 			{ "Tree_c9d321b103129184eb302bb638fd65ac", 1 },
+
+			{ "Potato_7b26dea2e6325194797da1fea6060743", 2 },
+
+			{ "PotatoSpawner_77b0867e586553a4d99ad1c7f3bfcb08", 3 },
 
 		};
 	}
