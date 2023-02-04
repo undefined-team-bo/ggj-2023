@@ -6,7 +6,8 @@ public class PlayerHandler : MonoBehaviour
 {
     public float spawnRadius = 1f;
     public GameObject prefabToSpawn;
-    
+    public bool autoSpawn = false;
+
     [Header("Camera")]
     public CinemachineVirtualCamera gameplayVCam;
     public bool lookAtPlayer;
@@ -19,6 +20,13 @@ public class PlayerHandler : MonoBehaviour
         if (gameplayVCam != null) gameplayVCam.gameObject.SetActive(false);
     }
 
+    private void Start()
+    {
+        if (autoSpawn)
+        {
+            SpawnPlayer();
+        }
+    }
     public void SpawnPlayer()
     {
         Vector3 initialPosition = transform.position + Random.insideUnitSphere * spawnRadius;

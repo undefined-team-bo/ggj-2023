@@ -11,30 +11,37 @@ public class Move : MonoBehaviour
     private float _currentDashCD = 0f;
     private bool _shouldDash;
 
-    void Start() {
-       _rigidBody = GetComponent<Rigidbody>();
+    void Start()
+    {
+        _rigidBody = GetComponent<Rigidbody>();
     }
 
-    void Update() {
+    void Update()
+    {
         // Dash
-        if (_currentDashCD < 0.1 && Input.GetKeyDown(KeyCode.Space)) {
+        if (_currentDashCD < 0.1 && Input.GetKeyDown(KeyCode.Space))
+        {
             _shouldDash = true;
             _currentDashCD = _dashCD;
-        } else if (_currentDashCD > 0f) {
+        }
+        else if (_currentDashCD > 0f)
+        {
             _currentDashCD -= Time.deltaTime;
         }
     }
 
-    void FixedUpdate() {
+    void FixedUpdate()
+    {
         float inputHorizontal = Input.GetAxisRaw("Horizontal");
         float inputVertical = Input.GetAxisRaw("Vertical");
 
-        Vector3 movement = new Vector3 (inputHorizontal, 0.0f, inputVertical);
+        Vector3 movement = new Vector3(inputHorizontal, 0.0f, inputVertical);
 
         _rigidBody.MovePosition(transform.position + movement * Time.deltaTime * speed);
 
         // Dash RB
-        if (_shouldDash) {
+        if (_shouldDash)
+        {
             _shouldDash = false;
             _rigidBody.AddForce(transform.forward * dashImpulse, ForceMode.Impulse);
         }
