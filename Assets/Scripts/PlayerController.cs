@@ -10,6 +10,9 @@ public class PlayerController : MonoBehaviour
 {
     public TextMeshProUGUI inventoryText;
     public TextMeshProUGUI playerName;
+
+    public  SpriteRenderer spriteRenderer;
+    public Light light;
     public string playerNameString;
     public int R = 255;
     public int G = 255;
@@ -37,12 +40,17 @@ public class PlayerController : MonoBehaviour
     {
         playerNameString = WorldsConnectDialog.PlayerName;
         _rigidBody = GetComponent<Rigidbody>();
-
+        Color32 color = ColorManager.instance.GetColorRandom();
+        R = color.r;
+        G = color.g;
+        B = color.b;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+        spriteRenderer.color = new Color32((byte)R, (byte)G, (byte)B, 255);
+        light.color = new Color32((byte)R, (byte)G, (byte)B, 255);
         inventoryText.text = $"{actualInventory}";
         playerName.text = $"{playerNameString}";
     }

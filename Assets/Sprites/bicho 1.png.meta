@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9c73bad6c309d5543b2dbe40af5e004d
+guid: 4283f54ae9efadb479efc146dd56aec2
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,13 +117,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: papa01_0
+      name: bicho 1_0
       rect:
         serializedVersion: 2
-        x: 57
-        y: 31
-        width: 397
-        height: 454
+        x: 134
+        y: 142
+        width: 245
+        height: 215
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,8 +131,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0f3293f84514ff24f8dc21c874df9f93
-      internalID: 1517653272
+      spriteID: dbb6927c28d1f9145808b0e6c6522a58
+      internalID: -46016898
       vertices: []
       indices: 
       edges: []
@@ -140,7 +140,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: b5761f17574afa04f852d31434df9d6f
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      papa01_0: 1517653272
+      bicho 1_0: -46016898
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

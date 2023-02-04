@@ -13,12 +13,19 @@ public class TreeController : MonoBehaviour
     public float HealthG = 255;
     [OnValueSynced(nameof(UpdateHealthB))]
     public float HealthB = 255;
+    public float multiplierR = 0.07f;
+    public float multiplierG = 0.07f;
+    public float multiplierB = 0.07f;
     public int velocityReduceLifeR = 10;
     public int velocityReduceLifeG = 10;
     public int velocityReduceLifeB = 10;
     public bool IsConnected = false;
     public TextMeshProUGUI textField;
 
+    public SpriteRenderer spriteRendererTree1;
+    public SpriteRenderer spriteRendererTree2;
+    public SpriteRenderer spriteRendererTree3;
+    public SpriteRenderer spriteRendererTree4;
     private CoherenceSync _counterSync;
     private CoherenceMonoBridge _monoBridge;
 
@@ -52,6 +59,10 @@ public class TreeController : MonoBehaviour
     void Update()
     {
         textField.text = $"{(int)HealthR},{(int)HealthG},{(int)HealthB}";
+        spriteRendererTree1.color = new Color32((byte)HealthR, (byte)HealthG, (byte)HealthB, 255);
+        spriteRendererTree2.color = new Color32((byte)HealthR, (byte)HealthG, (byte)HealthB, 255);
+        spriteRendererTree3.color = new Color32((byte)HealthR, (byte)HealthG, (byte)HealthB, 255);
+        spriteRendererTree4.color = new Color32((byte)HealthR, (byte)HealthG, (byte)HealthB, 255);
         GameObject player = GameObject.FindWithTag("Player");
         IsConnected = player != null;
         if (IsConnected)
@@ -67,17 +78,22 @@ public class TreeController : MonoBehaviour
                 HealthB = 0;
         }
     }
+    public void SunLightChange(){
+        LightController.instance.SwitchColor(new Color32((byte)HealthR, (byte)HealthG, (byte)HealthB, 255));
+    }
+
     public void RestoreHealth(Vector3 amount, int quantity)
     {
-        HealthR = HealthR + amount.x * quantity;
-        HealthG = HealthG + amount.y * quantity;
-        HealthB = HealthB + amount.z * quantity;
+        HealthR = HealthR + amount.x * quantity * multiplierR;
+        HealthG = HealthG + amount.y * quantity * multiplierG;
+        HealthB = HealthB + amount.z * quantity * multiplierB;
         if (HealthR > 255)
             HealthR = 255;
         if (HealthG > 255)
             HealthG = 255;
         if (HealthB > 255)
             HealthB = 255;
+        SunLightChange();
 
     }
     public void OnTriggerEnter(Collider other)
@@ -86,6 +102,7 @@ public class TreeController : MonoBehaviour
         {
             FoodModel food = other.gameObject.GetComponent<PlayerController>().DownloadFood();
             Vector3 color = new Vector3(food.R, food.G, food.B);
+            Debug.Log($"Food: {food.R},{food.G},{food.B}");
             RestoreHealth(color, food.Quantity);
         }
     }

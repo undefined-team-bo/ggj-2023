@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9c73bad6c309d5543b2dbe40af5e004d
+guid: 45f451c7f0d835c4892dd5930cd5f089
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -117,22 +117,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: papa01_0
+      name: beta_0
       rect:
         serializedVersion: 2
-        x: 57
-        y: 31
-        width: 397
-        height: 454
+        x: 65
+        y: 0
+        width: 801
+        height: 1024
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0f3293f84514ff24f8dc21c874df9f93
-      internalID: 1517653272
+      spriteID: 6094a166a66146241b52e279bcc3ecbb
+      internalID: -937569686
       vertices: []
       indices: 
       edges: []
@@ -140,7 +140,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: d27a8ce3b80411942bc409131922ef4f
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      papa01_0: 1517653272
+      beta_0: -937569686
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

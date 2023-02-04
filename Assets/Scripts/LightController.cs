@@ -4,11 +4,22 @@ using UnityEngine;
 public class LightController : MonoBehaviour
 {
 
+    public static LightController instance { get; private set; }
     private float _maxFogVal = 1f;
     Color _initialColor = Color.white;
     float _transitionDuration = 5f;
     private IEnumerator _currentChangeCR;
-
+    private void Awake()
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            instance = this;
+        }
+    }
     void Start()
     {
         RenderSettings.fogColor = _initialColor;
@@ -19,7 +30,7 @@ public class LightController : MonoBehaviour
     {
     }
 
-    public void SwitchColor(Color target)
+    public void SwitchColor(Color32 target)
     {
         if (_currentChangeCR != null)
         {
@@ -29,7 +40,7 @@ public class LightController : MonoBehaviour
         StartCoroutine(_currentChangeCR);
     }
 
-    IEnumerator SwitchColorCR(Color target)
+    IEnumerator SwitchColorCR(Color32 target)
     {
         float currentTime = 0f; ;
         float deltaTime = 0.1f;
