@@ -11,6 +11,13 @@ public class Move : MonoBehaviour
     private float _dashCD = 5f;
     private float _currentDashCD = 0f;
     private bool _shouldDash;
+    [HideInInspector]
+    public bool isDashing = false;
+    private float _minDashVel = 100f;
+
+
+    private float _currentStunCD = 0f;
+    private float _stunCD = 2f;
 
     void Start()
     {
@@ -19,6 +26,14 @@ public class Move : MonoBehaviour
 
     void Update()
     {
+        // Stun
+        if (_currentStunCD > 0)
+        {
+            Debug.Log(12);
+            _currentStunCD -= Time.deltaTime;
+            return;
+        }
+
         // Dash
         if (_currentDashCD < 0.1 && Input.GetKeyDown(KeyCode.Space))
         {
@@ -33,6 +48,11 @@ public class Move : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (_currentStunCD > 0)
+        {
+            return;
+        }
+
         float inputHorizontal = Input.GetAxisRaw("Horizontal");
         float inputVertical = Input.GetAxisRaw("Vertical");
 
@@ -43,10 +63,33 @@ public class Move : MonoBehaviour
         _rigidBody.MoveRotation(_rigidBody.rotation * rotation);
 
         // Dash RB
+
+        float currVel = _rigidBody.velocity.sqrMagnitude;
+        if (isDashing && currVel < _minDashVel)
+        {
+            isDashing = false;
+        }
+
         if (_shouldDash)
         {
             _shouldDash = false;
+            isDashing = true;
             _rigidBody.AddForce(transform.forward * dashImpulse, ForceMode.Impulse);
         }
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        Move moveController = collision.gameObject.GetComponent<Move>();
+        if (collision.gameObject.CompareTag("Player") && moveController.isDashing)
+        {
+            InitStun();
+            Debug.Log(123123);
+        }
+    }
+
+    private void InitStun()
+    {
+        _currentStunCD = _stunCD;
     }
 }
