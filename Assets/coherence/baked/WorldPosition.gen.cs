@@ -73,7 +73,7 @@ namespace Coherence.Generated
 			}
 			return (val, mask, null);
 		}
-		public static (WorldPosition, uint, uint?) DeserializeArchetypeCube_2f37b1be90c58714f91aba02c042dfd9_WorldPosition_LOD0(InProtocolBitStream bitStream)
+		public static (WorldPosition, uint, uint?) DeserializeArchetypePlayer_2f37b1be90c58714f91aba02c042dfd9_WorldPosition_LOD0(InProtocolBitStream bitStream)
 		{
 			var mask = (uint)0;
 			var val = new WorldPosition();
@@ -85,7 +85,7 @@ namespace Coherence.Generated
 
 			return (val, mask, 0);
 		}
-		public static (WorldPosition, uint, uint?) DeserializeArchetypeCube__char_32_Variant_e8d6920402569dd47b477052885e156b_WorldPosition_LOD0(InProtocolBitStream bitStream)
+		public static (WorldPosition, uint, uint?) DeserializeArchetypeTree_c9d321b103129184eb302bb638fd65ac_WorldPosition_LOD0(InProtocolBitStream bitStream)
 		{
 			var mask = (uint)0;
 			var val = new WorldPosition();

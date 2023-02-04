@@ -15,16 +15,16 @@ namespace Coherence.Generated
 	using Coherence.Toolkit;
 	using UnityEngine;
 
-	public struct GenericScale : ICoherenceComponentData
+	public struct Tree_id1_TreeController_6230497222636945137 : ICoherenceComponentData
 	{
-		public Vector3 value;
+		public float Health;
 
 		public override string ToString()
 		{
-			return $"GenericScale(value: {value})";
+			return $"Tree_id1_TreeController_6230497222636945137(Health: {Health})";
 		}
 
-		public uint GetComponentType() => Definition.InternalGenericScale;
+		public uint GetComponentType() => Definition.InternalTree_id1_TreeController_6230497222636945137;
 
 		public const int order = 0;
 
@@ -42,44 +42,44 @@ namespace Coherence.Generated
 
 		public ICoherenceComponentData MergeWith(ICoherenceComponentData data, uint mask)
 		{
-			var other = (GenericScale)data;
+			var other = (Tree_id1_TreeController_6230497222636945137)data;
 			if ((mask & 0x01) != 0)
 			{
 				Frame = other.Frame;
-				value = other.value;
+				Health = other.Health;
 			}
 			mask >>= 1;
 			return this;
 		}
 
-		public static void Serialize(GenericScale data, uint mask, IOutProtocolBitStream bitStream)
+		public static void Serialize(Tree_id1_TreeController_6230497222636945137 data, uint mask, IOutProtocolBitStream bitStream)
 		{
 			if (bitStream.WriteMask((mask & 0x01) != 0))
 			{
-				bitStream.WriteVector3((data.value.ToCoreVector3()), FloatMeta.NoCompression());
+				bitStream.WriteFloat(data.Health, FloatMeta.NoCompression());
 			}
 			mask >>= 1;
 		}
 
-		public static (GenericScale, uint, uint?) Deserialize(InProtocolBitStream bitStream)
+		public static (Tree_id1_TreeController_6230497222636945137, uint, uint?) Deserialize(InProtocolBitStream bitStream)
 		{
 			var mask = (uint)0;
-			var val = new GenericScale();
+			var val = new Tree_id1_TreeController_6230497222636945137();
 	
 			if (bitStream.ReadMask())
 			{
-				val.value = (bitStream.ReadVector3(FloatMeta.NoCompression())).ToUnityVector3();
+				val.Health = bitStream.ReadFloat(FloatMeta.NoCompression());
 				mask |= 0b00000000000000000000000000000001;
 			}
 			return (val, mask, null);
 		}
-		public static (GenericScale, uint, uint?) DeserializeArchetypePlayer_2f37b1be90c58714f91aba02c042dfd9_GenericScale_LOD0(InProtocolBitStream bitStream)
+		public static (Tree_id1_TreeController_6230497222636945137, uint, uint?) DeserializeArchetypeTree_c9d321b103129184eb302bb638fd65ac_Tree_id1_TreeController_6230497222636945137_LOD0(InProtocolBitStream bitStream)
 		{
 			var mask = (uint)0;
-			var val = new GenericScale();
+			var val = new Tree_id1_TreeController_6230497222636945137();
 			if (bitStream.ReadMask())
 			{
-				val.value = (bitStream.ReadVector3(FloatMeta.NoCompression())).ToUnityVector3();
+				val.Health = bitStream.ReadFloat(FloatMeta.NoCompression());
 				mask |= 0b00000000000000000000000000000001;
 			}
 
@@ -95,7 +95,7 @@ namespace Coherence.Generated
 		/// </summary>
 		public void ResetByteArrays(ICoherenceComponentData lastSent, uint mask)
 		{
-			var last = lastSent as GenericScale?;
+			var last = lastSent as Tree_id1_TreeController_6230497222636945137?;
 	
 		}
 	}

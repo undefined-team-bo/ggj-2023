@@ -16,7 +16,7 @@ namespace Coherence.Generated
 
 	public class Definition : IDefinition
 	{
-		public const string schemaId = "fea91df7a9e76e880efeb26385dab5010a52fdba";
+		public const string schemaId = "91c6f955d533b0ba0773dbbb639d103ab00cbf8e";
 		public const uint InternalWorldPosition = 0;
 		public const uint InternalWorldOrientation = 1;
 		public const uint InternalLocalUser = 2;
@@ -119,12 +119,12 @@ namespace Coherence.Generated
 		public const uint InternalGenericFieldULong3 = 99;
 		public const uint InternalGenericFieldColor0 = 100;
 		public const uint InternalGenericFieldColor1 = 101;
-		public const uint InternalArchetypeCube_2f37b1be90c58714f91aba02c042dfd9_WorldPosition_LOD0 = 102;
-		public const uint InternalArchetypeCube_2f37b1be90c58714f91aba02c042dfd9_WorldOrientation_LOD0 = 103;
-		public const uint InternalArchetypeCube_2f37b1be90c58714f91aba02c042dfd9_GenericScale_LOD0 = 104;
-		public const uint InternalArchetypeCube__char_32_Variant_e8d6920402569dd47b477052885e156b_WorldPosition_LOD0 = 105;
-		public const uint InternalArchetypeCube__char_32_Variant_e8d6920402569dd47b477052885e156b_WorldOrientation_LOD0 = 106;
-		public const uint InternalArchetypeCube__char_32_Variant_e8d6920402569dd47b477052885e156b_GenericScale_LOD0 = 107;
+		public const uint InternalTree_id1_TreeController_6230497222636945137 = 102;
+		public const uint InternalArchetypePlayer_2f37b1be90c58714f91aba02c042dfd9_WorldPosition_LOD0 = 103;
+		public const uint InternalArchetypePlayer_2f37b1be90c58714f91aba02c042dfd9_WorldOrientation_LOD0 = 104;
+		public const uint InternalArchetypePlayer_2f37b1be90c58714f91aba02c042dfd9_GenericScale_LOD0 = 105;
+		public const uint InternalArchetypeTree_c9d321b103129184eb302bb638fd65ac_WorldPosition_LOD0 = 106;
+		public const uint InternalArchetypeTree_c9d321b103129184eb302bb638fd65ac_Tree_id1_TreeController_6230497222636945137_LOD0 = 107;
 		public const uint InternalAuthorityRequest = 0;
 		public const uint InternalAuthorityTransfer = 1;
 		public const uint InternalQuerySynced = 2;
@@ -235,12 +235,12 @@ namespace Coherence.Generated
 			{ 99, "GenericFieldULong3" },
 			{ 100, "GenericFieldColor0" },
 			{ 101, "GenericFieldColor1" },
-			{ 102, "ArchetypeCube_2f37b1be90c58714f91aba02c042dfd9_WorldPosition_LOD0" },
-			{ 103, "ArchetypeCube_2f37b1be90c58714f91aba02c042dfd9_WorldOrientation_LOD0" },
-			{ 104, "ArchetypeCube_2f37b1be90c58714f91aba02c042dfd9_GenericScale_LOD0" },
-			{ 105, "ArchetypeCube__char_32_Variant_e8d6920402569dd47b477052885e156b_WorldPosition_LOD0" },
-			{ 106, "ArchetypeCube__char_32_Variant_e8d6920402569dd47b477052885e156b_WorldOrientation_LOD0" },
-			{ 107, "ArchetypeCube__char_32_Variant_e8d6920402569dd47b477052885e156b_GenericScale_LOD0" },
+			{ 102, "Tree_id1_TreeController_6230497222636945137" },
+			{ 103, "ArchetypePlayer_2f37b1be90c58714f91aba02c042dfd9_WorldPosition_LOD0" },
+			{ 104, "ArchetypePlayer_2f37b1be90c58714f91aba02c042dfd9_WorldOrientation_LOD0" },
+			{ 105, "ArchetypePlayer_2f37b1be90c58714f91aba02c042dfd9_GenericScale_LOD0" },
+			{ 106, "ArchetypeTree_c9d321b103129184eb302bb638fd65ac_WorldPosition_LOD0" },
+			{ 107, "ArchetypeTree_c9d321b103129184eb302bb638fd65ac_Tree_id1_TreeController_6230497222636945137_LOD0" },
 		};
 
 		public static string ComponentNameForTypeId(uint typeId)
@@ -466,18 +466,18 @@ namespace Coherence.Generated
 					return GenericFieldColor0.Deserialize(inProtocolStream);
 				case InternalGenericFieldColor1:
 					return GenericFieldColor1.Deserialize(inProtocolStream);
-				case InternalArchetypeCube_2f37b1be90c58714f91aba02c042dfd9_WorldPosition_LOD0:
-					return WorldPosition.DeserializeArchetypeCube_2f37b1be90c58714f91aba02c042dfd9_WorldPosition_LOD0(inProtocolStream);
-				case InternalArchetypeCube_2f37b1be90c58714f91aba02c042dfd9_WorldOrientation_LOD0:
-					return WorldOrientation.DeserializeArchetypeCube_2f37b1be90c58714f91aba02c042dfd9_WorldOrientation_LOD0(inProtocolStream);
-				case InternalArchetypeCube_2f37b1be90c58714f91aba02c042dfd9_GenericScale_LOD0:
-					return GenericScale.DeserializeArchetypeCube_2f37b1be90c58714f91aba02c042dfd9_GenericScale_LOD0(inProtocolStream);
-				case InternalArchetypeCube__char_32_Variant_e8d6920402569dd47b477052885e156b_WorldPosition_LOD0:
-					return WorldPosition.DeserializeArchetypeCube__char_32_Variant_e8d6920402569dd47b477052885e156b_WorldPosition_LOD0(inProtocolStream);
-				case InternalArchetypeCube__char_32_Variant_e8d6920402569dd47b477052885e156b_WorldOrientation_LOD0:
-					return WorldOrientation.DeserializeArchetypeCube__char_32_Variant_e8d6920402569dd47b477052885e156b_WorldOrientation_LOD0(inProtocolStream);
-				case InternalArchetypeCube__char_32_Variant_e8d6920402569dd47b477052885e156b_GenericScale_LOD0:
-					return GenericScale.DeserializeArchetypeCube__char_32_Variant_e8d6920402569dd47b477052885e156b_GenericScale_LOD0(inProtocolStream);
+				case InternalTree_id1_TreeController_6230497222636945137:
+					return Tree_id1_TreeController_6230497222636945137.Deserialize(inProtocolStream);
+				case InternalArchetypePlayer_2f37b1be90c58714f91aba02c042dfd9_WorldPosition_LOD0:
+					return WorldPosition.DeserializeArchetypePlayer_2f37b1be90c58714f91aba02c042dfd9_WorldPosition_LOD0(inProtocolStream);
+				case InternalArchetypePlayer_2f37b1be90c58714f91aba02c042dfd9_WorldOrientation_LOD0:
+					return WorldOrientation.DeserializeArchetypePlayer_2f37b1be90c58714f91aba02c042dfd9_WorldOrientation_LOD0(inProtocolStream);
+				case InternalArchetypePlayer_2f37b1be90c58714f91aba02c042dfd9_GenericScale_LOD0:
+					return GenericScale.DeserializeArchetypePlayer_2f37b1be90c58714f91aba02c042dfd9_GenericScale_LOD0(inProtocolStream);
+				case InternalArchetypeTree_c9d321b103129184eb302bb638fd65ac_WorldPosition_LOD0:
+					return WorldPosition.DeserializeArchetypeTree_c9d321b103129184eb302bb638fd65ac_WorldPosition_LOD0(inProtocolStream);
+				case InternalArchetypeTree_c9d321b103129184eb302bb638fd65ac_Tree_id1_TreeController_6230497222636945137_LOD0:
+					return Tree_id1_TreeController_6230497222636945137.DeserializeArchetypeTree_c9d321b103129184eb302bb638fd65ac_Tree_id1_TreeController_6230497222636945137_LOD0(inProtocolStream);
 				default:
 					return (null, 0, 0);
 			}
@@ -793,6 +793,9 @@ namespace Coherence.Generated
 					break;
 				case InternalGenericFieldColor1:
 					GenericFieldColor1.Serialize((GenericFieldColor1)data, mask, protocolStream);
+					break;
+				case InternalTree_id1_TreeController_6230497222636945137:
+					Tree_id1_TreeController_6230497222636945137.Serialize((Tree_id1_TreeController_6230497222636945137)data, mask, protocolStream);
 					break;
 			}
 		}
