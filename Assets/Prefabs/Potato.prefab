@@ -59,6 +59,7 @@ GameObject:
   - component: {fileID: 4414228084471323047}
   - component: {fileID: 4414228084471323040}
   - component: {fileID: -8031689450561802767}
+  - component: {fileID: 3712861248732843368}
   m_Layer: 0
   m_Name: Potato
   m_TagString: Potato
@@ -222,12 +223,14 @@ MonoBehaviour:
       lodStepsActive: 1
     - component: {fileID: 7644463758333661461}
       lodStepsActive: 1
+    - component: {fileID: 3712861248732843368}
+      lodStepsActive: 1
     lodLevels:
     - distance: 0
     archetypeName: Potato_7b26dea2e6325194797da1fea6060743
     GeneratesArchetypeDefinition: 1
   InterpolationLocation: 1
-  bakedScriptType: Coherence.Generated.CoherenceSyncPotato_id2, Assembly-CSharp
+  bakedScriptType: Coherence.Generated.CoherenceSyncPotato, Assembly-CSharp
   approveAuthorityTransferRequests: 1
   simulationType: 0
   authorityTransferType: 2
@@ -361,3 +364,15 @@ MonoBehaviour:
         component: {fileID: 4414228084471323040}
         setOnRemote: 1
         resetOnAuthority: 0
+--- !u!114 &3712861248732843368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4414228084471323041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57dd3367783c62740b23842b6e320b60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -29,7 +29,7 @@ public class PotatoSpawnerController : MonoBehaviour
         }
     }
     private void MonoBridgeOnOnLiveQuerySynced(CoherenceMonoBridge obj)
-    {        
+    {
         _coherenceSync = this.gameObject.GetComponent<CoherenceSync>();
     }
 
@@ -42,9 +42,12 @@ public class PotatoSpawnerController : MonoBehaviour
         else
         {
             _currentSpawnCD = _minSpawnCD + _spawnCD * Random.value;
-            if (_coherenceSync.HasStateAuthority){
+            if (_coherenceSync.HasStateAuthority)
+            {
                 SpawnPotato();
-            }else{
+            }
+            else
+            {
                 _coherenceSync.SendCommand<PotatoSpawnerController>(nameof(PotatoSpawnerController.SpawnPotato), MessageTarget.AuthorityOnly);
             }
 

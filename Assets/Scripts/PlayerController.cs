@@ -11,8 +11,10 @@ public class PlayerController : MonoBehaviour
     [HideInInspector]
     public int actualInventory = 0;
     private Rigidbody _rigidBody;
-    private float dropOffsetHorizontal = 1f;
-    private float dropOffsetVertical = 3f;
+    private float _dropOffsetHorizontal = 1f;
+    private float _dropOffsetVertical = 4f;
+    private float _minDropForce = 40f;
+    private float _dropForce = 50f;
 
     void Start()
     {
@@ -33,26 +35,27 @@ public class PlayerController : MonoBehaviour
         return food;
     }
 
-    public void DropPotatos()
+    public void DropPotatoes()
     {
         if (actualInventory > 0)
         {
-            StartCoroutine(DropPotatosCR(actualInventory));
+            StartCoroutine(DropPotatoesCR(actualInventory));
             actualInventory = 0;
         }
     }
 
-    IEnumerator DropPotatosCR(int numOfPotatos)
+    IEnumerator DropPotatoesCR(int numOfPotatoes)
     {
-        while (numOfPotatos > 0)
+        while (numOfPotatoes > 0)
         {
+            Vector2 randomPos = Random.insideUnitCircle * _dropOffsetHorizontal;
+            Vector3 potatoPos = new Vector3(transform.position.x + randomPos.x, transform.position.y + _dropOffsetVertical, transform.position.z + randomPos.y);
+            GameObject potato = Instantiate(potatoPrefab, potatoPos, Quaternion.identity, PotatoSpawnerController.instance.transform);
 
-            Vector2 randomCircle = Random.insideUnitCircle * dropOffsetHorizontal;
-            Vector3 randomPos = new Vector3(transform.position.x + randomCircle.x, transform.position.y + dropOffsetVertical, transform.position.z + randomCircle.y);
-            GameObject potato = Instantiate(potatoPrefab, randomPos, Quaternion.identity, PotatoSpawnerController.instance.transform);
             Rigidbody potatoRB = potato.GetComponent<Rigidbody>();
-            potatoRB.AddForce(Vector3.up * 50f);
-            numOfPotatos--;
+            Vector2 randomForce = Random.insideUnitCircle * _dropForce;
+            potatoRB.AddForce(new Vector3(_minDropForce + randomForce.x, _minDropForce, _minDropForce + randomForce.y));
+            numOfPotatoes--;
             yield return new WaitForFixedUpdate();
         }
     }

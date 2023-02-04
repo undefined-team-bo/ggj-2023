@@ -92,6 +92,6 @@ public class Move : MonoBehaviour
     private void InitStun()
     {
         _currentStunCD = _stunCD;
-        _myPlayerController.DropPotatos();
+        _myPlayerController.DropPotatoes();
     }
 }
