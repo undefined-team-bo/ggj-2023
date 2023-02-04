@@ -22,7 +22,7 @@ namespace Coherence.Generated
 	using Logger = Coherence.Log.Logger;
 	using UnityEngine.Scripting;
 
-	public class Binding_c9d321b103129184eb302bb638fd65ac_112b44b2_d38e_4b8d_83fd_b78c7b041a6f : FloatBinding
+	public class Binding_c9d321b103129184eb302bb638fd65ac_13e1af2f_bc9f_4bbc_a36d_5142c7927c77 : FloatBinding
 	{
 		private TreeController CastedUnityComponent;		
 
@@ -36,20 +36,94 @@ namespace Coherence.Generated
 
 		public override float Value
 		{
-			get => (float)(System.Single)(CastedUnityComponent.Health);
-			set => CastedUnityComponent.Health = (System.Single)(value);
+			get => (float)(System.Single)(CastedUnityComponent.HealthB);
+			set => CastedUnityComponent.HealthB = (System.Single)(value);
 		}
 
 		protected override float ReadComponentData(ICoherenceComponentData coherenceComponent)
 		{
 			var update = (Tree_id1_TreeController_6230497222636945137)coherenceComponent;
-			return update.Health;
+			return update.HealthB;
 		}
 		
 		public override ICoherenceComponentData WriteComponentData(ICoherenceComponentData coherenceComponent)
 		{
 			var update = (Tree_id1_TreeController_6230497222636945137)coherenceComponent;
-			update.Health = Value;
+			update.HealthB = Value;
+			return update;
+		}
+
+		public override ICoherenceComponentData CreateComponentData()
+		{
+			return new Tree_id1_TreeController_6230497222636945137();
+		}
+	}
+
+	public class Binding_c9d321b103129184eb302bb638fd65ac_4a5c9dac_5a86_4615_882a_6343da09763f : FloatBinding
+	{
+		private TreeController CastedUnityComponent;		
+
+		protected override void OnBindingCloned()
+		{
+			CastedUnityComponent = (TreeController)UnityComponent;
+		}
+		public override string CoherenceComponentName => "Tree_id1_TreeController_6230497222636945137";
+
+		public override uint FieldMask => 0b00000000000000000000000000000010;
+
+		public override float Value
+		{
+			get => (float)(System.Single)(CastedUnityComponent.HealthG);
+			set => CastedUnityComponent.HealthG = (System.Single)(value);
+		}
+
+		protected override float ReadComponentData(ICoherenceComponentData coherenceComponent)
+		{
+			var update = (Tree_id1_TreeController_6230497222636945137)coherenceComponent;
+			return update.HealthG;
+		}
+		
+		public override ICoherenceComponentData WriteComponentData(ICoherenceComponentData coherenceComponent)
+		{
+			var update = (Tree_id1_TreeController_6230497222636945137)coherenceComponent;
+			update.HealthG = Value;
+			return update;
+		}
+
+		public override ICoherenceComponentData CreateComponentData()
+		{
+			return new Tree_id1_TreeController_6230497222636945137();
+		}
+	}
+
+	public class Binding_c9d321b103129184eb302bb638fd65ac_0bd476b5_f426_44cb_ba27_c239dc028131 : FloatBinding
+	{
+		private TreeController CastedUnityComponent;		
+
+		protected override void OnBindingCloned()
+		{
+			CastedUnityComponent = (TreeController)UnityComponent;
+		}
+		public override string CoherenceComponentName => "Tree_id1_TreeController_6230497222636945137";
+
+		public override uint FieldMask => 0b00000000000000000000000000000100;
+
+		public override float Value
+		{
+			get => (float)(System.Single)(CastedUnityComponent.HealthR);
+			set => CastedUnityComponent.HealthR = (System.Single)(value);
+		}
+
+		protected override float ReadComponentData(ICoherenceComponentData coherenceComponent)
+		{
+			var update = (Tree_id1_TreeController_6230497222636945137)coherenceComponent;
+			return update.HealthR;
+		}
+		
+		public override ICoherenceComponentData WriteComponentData(ICoherenceComponentData coherenceComponent)
+		{
+			var update = (Tree_id1_TreeController_6230497222636945137)coherenceComponent;
+			update.HealthR = Value;
 			return update;
 		}
 
@@ -79,15 +153,35 @@ namespace Coherence.Generated
 			coherenceSync.usingReflection = false;
 
 			logger = coherenceSync.logger.With<CoherenceSyncTree_id1>();
-			if (coherenceSync.TryGetBindingByGuid("112b44b2-d38e-4b8d-83fd-b78c7b041a6f", "Health", out Binding InternalTree_id1_TreeController_6230497222636945137_Tree_id1_TreeController_6230497222636945137_Health))
+			if (coherenceSync.TryGetBindingByGuid("13e1af2f-bc9f-4bbc-a36d-5142c7927c77", "HealthB", out Binding InternalTree_id1_TreeController_6230497222636945137_Tree_id1_TreeController_6230497222636945137_HealthB))
 			{
-				var clone = new Binding_c9d321b103129184eb302bb638fd65ac_112b44b2_d38e_4b8d_83fd_b78c7b041a6f();
-				InternalTree_id1_TreeController_6230497222636945137_Tree_id1_TreeController_6230497222636945137_Health.CloneTo(clone);
-				coherenceSync.Bindings[coherenceSync.Bindings.IndexOf(InternalTree_id1_TreeController_6230497222636945137_Tree_id1_TreeController_6230497222636945137_Health)] = clone;
+				var clone = new Binding_c9d321b103129184eb302bb638fd65ac_13e1af2f_bc9f_4bbc_a36d_5142c7927c77();
+				InternalTree_id1_TreeController_6230497222636945137_Tree_id1_TreeController_6230497222636945137_HealthB.CloneTo(clone);
+				coherenceSync.Bindings[coherenceSync.Bindings.IndexOf(InternalTree_id1_TreeController_6230497222636945137_Tree_id1_TreeController_6230497222636945137_HealthB)] = clone;
 			}
 			else
 			{
-				logger.Error("Couldn't find binding (TreeController).Health");
+				logger.Error("Couldn't find binding (TreeController).HealthB");
+			}
+			if (coherenceSync.TryGetBindingByGuid("4a5c9dac-5a86-4615-882a-6343da09763f", "HealthG", out Binding InternalTree_id1_TreeController_6230497222636945137_Tree_id1_TreeController_6230497222636945137_HealthG))
+			{
+				var clone = new Binding_c9d321b103129184eb302bb638fd65ac_4a5c9dac_5a86_4615_882a_6343da09763f();
+				InternalTree_id1_TreeController_6230497222636945137_Tree_id1_TreeController_6230497222636945137_HealthG.CloneTo(clone);
+				coherenceSync.Bindings[coherenceSync.Bindings.IndexOf(InternalTree_id1_TreeController_6230497222636945137_Tree_id1_TreeController_6230497222636945137_HealthG)] = clone;
+			}
+			else
+			{
+				logger.Error("Couldn't find binding (TreeController).HealthG");
+			}
+			if (coherenceSync.TryGetBindingByGuid("0bd476b5-f426-44cb-ba27-c239dc028131", "HealthR", out Binding InternalTree_id1_TreeController_6230497222636945137_Tree_id1_TreeController_6230497222636945137_HealthR))
+			{
+				var clone = new Binding_c9d321b103129184eb302bb638fd65ac_0bd476b5_f426_44cb_ba27_c239dc028131();
+				InternalTree_id1_TreeController_6230497222636945137_Tree_id1_TreeController_6230497222636945137_HealthR.CloneTo(clone);
+				coherenceSync.Bindings[coherenceSync.Bindings.IndexOf(InternalTree_id1_TreeController_6230497222636945137_Tree_id1_TreeController_6230497222636945137_HealthR)] = clone;
+			}
+			else
+			{
+				logger.Error("Couldn't find binding (TreeController).HealthR");
 			}
 		}
 

@@ -17,11 +17,13 @@ namespace Coherence.Generated
 
 	public struct Tree_id1_TreeController_6230497222636945137 : ICoherenceComponentData
 	{
-		public float Health;
+		public float HealthB;
+		public float HealthG;
+		public float HealthR;
 
 		public override string ToString()
 		{
-			return $"Tree_id1_TreeController_6230497222636945137(Health: {Health})";
+			return $"Tree_id1_TreeController_6230497222636945137(HealthB: {HealthB}, HealthG: {HealthG}, HealthR: {HealthR})";
 		}
 
 		public uint GetComponentType() => Definition.InternalTree_id1_TreeController_6230497222636945137;
@@ -46,7 +48,19 @@ namespace Coherence.Generated
 			if ((mask & 0x01) != 0)
 			{
 				Frame = other.Frame;
-				Health = other.Health;
+				HealthB = other.HealthB;
+			}
+			mask >>= 1;
+			if ((mask & 0x01) != 0)
+			{
+				Frame = other.Frame;
+				HealthG = other.HealthG;
+			}
+			mask >>= 1;
+			if ((mask & 0x01) != 0)
+			{
+				Frame = other.Frame;
+				HealthR = other.HealthR;
 			}
 			mask >>= 1;
 			return this;
@@ -56,7 +70,17 @@ namespace Coherence.Generated
 		{
 			if (bitStream.WriteMask((mask & 0x01) != 0))
 			{
-				bitStream.WriteFloat(data.Health, FloatMeta.NoCompression());
+				bitStream.WriteFloat(data.HealthB, FloatMeta.NoCompression());
+			}
+			mask >>= 1;
+			if (bitStream.WriteMask((mask & 0x01) != 0))
+			{
+				bitStream.WriteFloat(data.HealthG, FloatMeta.NoCompression());
+			}
+			mask >>= 1;
+			if (bitStream.WriteMask((mask & 0x01) != 0))
+			{
+				bitStream.WriteFloat(data.HealthR, FloatMeta.NoCompression());
 			}
 			mask >>= 1;
 		}
@@ -68,8 +92,18 @@ namespace Coherence.Generated
 	
 			if (bitStream.ReadMask())
 			{
-				val.Health = bitStream.ReadFloat(FloatMeta.NoCompression());
+				val.HealthB = bitStream.ReadFloat(FloatMeta.NoCompression());
 				mask |= 0b00000000000000000000000000000001;
+			}
+			if (bitStream.ReadMask())
+			{
+				val.HealthG = bitStream.ReadFloat(FloatMeta.NoCompression());
+				mask |= 0b00000000000000000000000000000010;
+			}
+			if (bitStream.ReadMask())
+			{
+				val.HealthR = bitStream.ReadFloat(FloatMeta.NoCompression());
+				mask |= 0b00000000000000000000000000000100;
 			}
 			return (val, mask, null);
 		}
@@ -79,8 +113,18 @@ namespace Coherence.Generated
 			var val = new Tree_id1_TreeController_6230497222636945137();
 			if (bitStream.ReadMask())
 			{
-				val.Health = bitStream.ReadFloat(FloatMeta.NoCompression());
+				val.HealthB = bitStream.ReadFloat(FloatMeta.NoCompression());
 				mask |= 0b00000000000000000000000000000001;
+			}
+			if (bitStream.ReadMask())
+			{
+				val.HealthG = bitStream.ReadFloat(FloatMeta.NoCompression());
+				mask |= 0b00000000000000000000000000000010;
+			}
+			if (bitStream.ReadMask())
+			{
+				val.HealthR = bitStream.ReadFloat(FloatMeta.NoCompression());
+				mask |= 0b00000000000000000000000000000100;
 			}
 
 			return (val, mask, 0);

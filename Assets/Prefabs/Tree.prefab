@@ -250,6 +250,7 @@ GameObject:
   - component: {fileID: 6944398059840426549}
   - component: {fileID: 7734223439811994560}
   - component: {fileID: 6230497222636945137}
+  - component: {fileID: 8100614281229423712}
   m_Layer: 0
   m_Name: Tree
   m_TagString: Untagged
@@ -408,6 +409,8 @@ MonoBehaviour:
       lodStepsActive: 1
     - component: {fileID: 7357616207965526579}
       lodStepsActive: 1
+    - component: {fileID: 8100614281229423712}
+      lodStepsActive: 1
     lodLevels:
     - distance: 0
     archetypeName: Tree_c9d321b103129184eb302bb638fd65ac
@@ -427,7 +430,9 @@ MonoBehaviour:
   customBindings: []
   bindings:
   - rid: 5040948641168883712
-  - rid: 5040948641168883753
+  - rid: 5040948648532508672
+  - rid: 5040948648532508674
+  - rid: 5040948648532508676
   onNetworkedInstantiation:
     m_PersistentCalls:
       m_Calls: []
@@ -494,15 +499,15 @@ MonoBehaviour:
             Coherence.Toolkit, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
         oldName: 
         oldParameterAssemblyTypes: []
-    - rid: 5040948641168883753
+    - rid: 5040948648532508672
       type: {class: FloatBinding, ns: Coherence.Toolkit.Bindings.ValueBindings, asm: Coherence.Toolkit}
       data:
         descriptor:
-          rid: 5040948641168883754
+          rid: 5040948648532508673
         routing: 0
         isPredicted: 0
         defaultInterpolationPath: 
-        guid: 112b44b2-d38e-4b8d-83fd-b78c7b041a6f
+        guid: 13e1af2f-bc9f-4bbc-a36d-5142c7927c77
         archetypeData:
           type: 4
           minRange: 0
@@ -520,14 +525,106 @@ MonoBehaviour:
         unityComponent: {fileID: 6230497222636945137}
         coherenceSync: {fileID: 0}
         interpolationSettings: {fileID: 11400000, guid: ae4419d1d9a8643709bf5f6b90c584a5, type: 2}
-    - rid: 5040948641168883754
+    - rid: 5040948648532508673
       type: {class: Descriptor, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
       data:
-        name: Health
+        name: HealthB
         monoAssemblyType: System.Single, mscorlib
         required: 0
         enforcesLODingWhenFieldsOverriden: 1
-        valueSyncCallbackName: UpdateHealthLabel
+        valueSyncCallbackName: UpdateHealthB
+        memberType: 4
+        parameterAssemblyTypes: []
+        ownerType:
+          assemblyQualifiedName: TreeController, Assembly-CSharp, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+        CustomData:
+          rid: -2
+        bindingType:
+          assemblyQualifiedName: Coherence.Toolkit.Bindings.ValueBindings.FloatBinding,
+            Coherence.Toolkit, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        oldName: 
+        oldParameterAssemblyTypes: []
+    - rid: 5040948648532508674
+      type: {class: FloatBinding, ns: Coherence.Toolkit.Bindings.ValueBindings, asm: Coherence.Toolkit}
+      data:
+        descriptor:
+          rid: 5040948648532508675
+        routing: 0
+        isPredicted: 0
+        defaultInterpolationPath: 
+        guid: 4a5c9dac-5a86-4615-882a-6343da09763f
+        archetypeData:
+          type: 4
+          minRange: 0
+          maxRange: 0
+          sampleRate: 20
+          floatCompression: 0
+          fields:
+          - type: 4
+            bits: 32
+            minRange: 0
+            maxRange: 0
+            precision: 0.001
+            floatCompression: 0
+          sharedBinding: {fileID: 0}
+        unityComponent: {fileID: 6230497222636945137}
+        coherenceSync: {fileID: 0}
+        interpolationSettings: {fileID: 11400000, guid: ae4419d1d9a8643709bf5f6b90c584a5, type: 2}
+    - rid: 5040948648532508675
+      type: {class: Descriptor, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
+      data:
+        name: HealthG
+        monoAssemblyType: System.Single, mscorlib
+        required: 0
+        enforcesLODingWhenFieldsOverriden: 1
+        valueSyncCallbackName: UpdateHealthG
+        memberType: 4
+        parameterAssemblyTypes: []
+        ownerType:
+          assemblyQualifiedName: TreeController, Assembly-CSharp, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+        CustomData:
+          rid: -2
+        bindingType:
+          assemblyQualifiedName: Coherence.Toolkit.Bindings.ValueBindings.FloatBinding,
+            Coherence.Toolkit, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        oldName: 
+        oldParameterAssemblyTypes: []
+    - rid: 5040948648532508676
+      type: {class: FloatBinding, ns: Coherence.Toolkit.Bindings.ValueBindings, asm: Coherence.Toolkit}
+      data:
+        descriptor:
+          rid: 5040948648532508677
+        routing: 0
+        isPredicted: 0
+        defaultInterpolationPath: 
+        guid: 0bd476b5-f426-44cb-ba27-c239dc028131
+        archetypeData:
+          type: 4
+          minRange: 0
+          maxRange: 0
+          sampleRate: 20
+          floatCompression: 0
+          fields:
+          - type: 4
+            bits: 32
+            minRange: 0
+            maxRange: 0
+            precision: 0.001
+            floatCompression: 0
+          sharedBinding: {fileID: 0}
+        unityComponent: {fileID: 6230497222636945137}
+        coherenceSync: {fileID: 0}
+        interpolationSettings: {fileID: 11400000, guid: ae4419d1d9a8643709bf5f6b90c584a5, type: 2}
+    - rid: 5040948648532508677
+      type: {class: Descriptor, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
+      data:
+        name: HealthR
+        monoAssemblyType: System.Single, mscorlib
+        required: 0
+        enforcesLODingWhenFieldsOverriden: 1
+        valueSyncCallbackName: UpdateHealthR
         memberType: 4
         parameterAssemblyTypes: []
         ownerType:
@@ -552,6 +649,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdc79698cdfe845469b6197b57a3a4b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 100
+  HealthR: 255
+  HealthG: 255
+  HealthB: 255
+  velocityReduceLifeR: 10
+  velocityReduceLifeG: 5
+  velocityReduceLifeB: 1
   IsConnected: 0
   textField: {fileID: 7357616207965526579}
+--- !u!135 &8100614281229423712
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6944398059840426548}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.88
+  m_Center: {x: 0.000000059604645, y: -0.79, z: -0.00000008940697}
