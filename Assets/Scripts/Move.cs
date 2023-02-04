@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class Move : MonoBehaviour
 {
-    public float speed = 4f;
+    public float speed = 5f;
+    public float rotationSpeed = 70f;
     public float dashImpulse = 20f;
 
     private Rigidbody _rigidBody;
@@ -35,9 +36,11 @@ public class Move : MonoBehaviour
         float inputHorizontal = Input.GetAxisRaw("Horizontal");
         float inputVertical = Input.GetAxisRaw("Vertical");
 
-        Vector3 movement = new Vector3(inputHorizontal, 0.0f, inputVertical);
+        Vector3 movement = transform.forward * inputVertical;
+        _rigidBody.MovePosition(_rigidBody.position + movement * Time.fixedDeltaTime * speed);
 
-        _rigidBody.MovePosition(transform.position + movement * Time.deltaTime * speed);
+        Quaternion rotation = Quaternion.Euler(Vector3.up * inputHorizontal * Time.fixedDeltaTime * rotationSpeed);
+        _rigidBody.MoveRotation(_rigidBody.rotation * rotation);
 
         // Dash RB
         if (_shouldDash)
