@@ -556,6 +556,7 @@ MonoBehaviour:
   speed: 5
   rotationSpeed: 70
   dashImpulse: 20
+  isDashing: 0
 --- !u!54 &-9206109874355276054
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -587,4 +588,5 @@ MonoBehaviour:
   R: 255
   G: 255
   B: 255
+  potatoPrefab: {fileID: 4414228084471323041, guid: 7b26dea2e6325194797da1fea6060743, type: 3}
   actualInventory: 1

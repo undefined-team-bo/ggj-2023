@@ -19,9 +19,12 @@ public class Move : MonoBehaviour
     private float _currentStunCD = 0f;
     private float _stunCD = 2f;
 
+    private PlayerController _myPlayerController;
+
     void Start()
     {
         _rigidBody = GetComponent<Rigidbody>();
+        _myPlayerController = GetComponent<PlayerController>();
     }
 
     void Update()
@@ -89,5 +92,6 @@ public class Move : MonoBehaviour
     private void InitStun()
     {
         _currentStunCD = _stunCD;
+        _myPlayerController.DropPotatos();
     }
 }

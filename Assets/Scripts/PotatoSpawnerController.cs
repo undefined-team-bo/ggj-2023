@@ -4,11 +4,24 @@ using Random = UnityEngine.Random;
 
 public class PotatoSpawnerController : MonoBehaviour
 {
+    public static PotatoSpawnerController instance { get; private set; }
     public GameObject prefabToSpawn;
     private float _spawnRange = 10f;
     private float _spawnCD = 2f;
     private float _minSpawnCD = 0.5f;
     private float _currentSpawnCD = 0f;
+
+    private void Awake()
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            instance = this;
+        }
+    }
 
     void Update()
     {
