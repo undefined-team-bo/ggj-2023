@@ -29,20 +29,19 @@ public class Move : MonoBehaviour
         // Stun
         if (_currentStunCD > 0)
         {
-            Debug.Log(12);
             _currentStunCD -= Time.deltaTime;
             return;
         }
 
         // Dash
-        if (_currentDashCD < 0.1 && Input.GetKeyDown(KeyCode.Space))
+        if (_currentDashCD > 0f)
+        {
+            _currentDashCD -= Time.deltaTime;
+        }
+        else if (Input.GetKeyDown(KeyCode.Space))
         {
             _shouldDash = true;
             _currentDashCD = _dashCD;
-        }
-        else if (_currentDashCD > 0f)
-        {
-            _currentDashCD -= Time.deltaTime;
         }
     }
 
@@ -84,7 +83,6 @@ public class Move : MonoBehaviour
         if (collision.gameObject.CompareTag("Player") && moveController.isDashing)
         {
             InitStun();
-            Debug.Log(123123);
         }
     }
 
