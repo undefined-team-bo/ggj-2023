@@ -52,10 +52,6 @@ public class PlayerController : MonoBehaviour
         R = color.r;
         G = color.g;
         B = color.b;
-        Color32 startColor = new Color32((byte)R, (byte)G, (byte)B, 255);
-        spriteRenderer.color = startColor;
-        myLight.color = startColor;
-        trail.startColor = new Color32(startColor.r, startColor.g, startColor.b, 150);
     }
 
     // Update is called once per frame
@@ -63,6 +59,10 @@ public class PlayerController : MonoBehaviour
     {
         inventoryText.text = $"{actualInventory}";
         playerName.text = $"{playerNameString}";
+        Color32 startColor = new Color32((byte)R, (byte)G, (byte)B, 255);
+        spriteRenderer.color = startColor;
+        myLight.color = startColor;
+        trail.startColor = new Color32(startColor.r, startColor.g, startColor.b, 150);
     }
 
     public FoodModel DownloadFood()

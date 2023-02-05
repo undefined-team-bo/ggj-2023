@@ -24,11 +24,14 @@ public class TreeController : MonoBehaviour
 
     public SpriteRenderer spriteRendererTree1;
     public SpriteRenderer spriteRendererTree2;
-    public SpriteRenderer spriteRendererTree3;
-    public SpriteRenderer spriteRendererTree4;
-    private CoherenceSync _counterSync;
+    private CoherenceSync _coherenceSync;
     private CoherenceMonoBridge _monoBridge;
 
+    public Vector3 lastColor;
+    public int lastQuantity;
+
+    private float updateLightMax = 3f;
+    private float updateLightTime = 0f;
     private void Awake()
     {
         _monoBridge = FindObjectOfType<CoherenceMonoBridge>();
@@ -37,7 +40,7 @@ public class TreeController : MonoBehaviour
 
     private void MonoBridgeOnOnLiveQuerySynced(CoherenceMonoBridge obj)
     {
-        _counterSync = this.gameObject.GetComponent<CoherenceSync>();
+        _coherenceSync = this.gameObject.GetComponent<CoherenceSync>();
     }
 
     public void UpdateHealthR(float oldHealth, float newHealth)
@@ -56,17 +59,28 @@ public class TreeController : MonoBehaviour
         Debug.Log($" B changed by: {newHealth} - {oldHealth}");
     }
 
-    void Update()
+    void FixedUpdate()
     {
+
         textField.text = $"{(int)HealthR},{(int)HealthG},{(int)HealthB}";
         spriteRendererTree1.color = new Color32((byte)HealthR, (byte)HealthG, (byte)HealthB, 255);
         spriteRendererTree2.color = new Color32((byte)HealthR, (byte)HealthG, (byte)HealthB, 255);
-        spriteRendererTree3.color = new Color32((byte)HealthR, (byte)HealthG, (byte)HealthB, 255);
-        spriteRendererTree4.color = new Color32((byte)HealthR, (byte)HealthG, (byte)HealthB, 255);
         GameObject player = GameObject.FindWithTag("Player");
         IsConnected = player != null;
         if (IsConnected)
         {
+            updateLightTime  += Time.deltaTime;
+            if (updateLightTime > updateLightMax)
+            {
+                updateLightTime = 0;
+                SunLightChange();
+            }
+            if (_coherenceSync == null)
+            {
+                _coherenceSync = this.gameObject.GetComponent<CoherenceSync>();
+            }
+            // if (_coherenceSync.HasStateAuthority)
+            // {
             HealthR = HealthR - Time.deltaTime * velocityReduceLifeR;
             if (HealthR < 0)
                 HealthR = 0;
@@ -76,25 +90,51 @@ public class TreeController : MonoBehaviour
             HealthB = HealthB - Time.deltaTime * velocityReduceLifeB;
             if (HealthB < 0)
                 HealthB = 0;
+            // }
         }
     }
-    public void SunLightChange(){
+    public void SunLightChange()
+    {
         LightController.instance.SwitchColor(new Color32((byte)HealthR, (byte)HealthG, (byte)HealthB, 255));
     }
 
     public void RestoreHealth(Vector3 amount, int quantity)
     {
-        HealthR = HealthR + amount.x * quantity * multiplierR;
-        HealthG = HealthG + amount.y * quantity * multiplierG;
-        HealthB = HealthB + amount.z * quantity * multiplierB;
+        lastColor = amount;
+        lastQuantity = quantity;
+        _coherenceSync = this.gameObject.GetComponent<CoherenceSync>();
+        if (_coherenceSync.HasStateAuthority)
+        {
+            HealthR = HealthR + amount.x * quantity * multiplierR;
+            HealthG = HealthG + amount.y * quantity * multiplierG;
+            HealthB = HealthB + amount.z * quantity * multiplierB;
+            if (HealthR > 255)
+                HealthR = 255;
+            if (HealthG > 255)
+                HealthG = 255;
+            if (HealthB > 255)
+                HealthB = 255;
+            // SunLightChange();
+        }
+        else
+        {
+            _coherenceSync.SendCommand<TreeController>(nameof(RestoreHealthNet), MessageTarget.AuthorityOnly);
+        }
+
+    }
+    public void RestoreHealthNet()
+    {
+
+        HealthR = HealthR + lastColor.x * lastQuantity * multiplierR;
+        HealthG = HealthG + lastColor.y * lastQuantity * multiplierG;
+        HealthB = HealthB + lastColor.z * lastQuantity * multiplierB;
         if (HealthR > 255)
             HealthR = 255;
         if (HealthG > 255)
             HealthG = 255;
         if (HealthB > 255)
             HealthB = 255;
-        SunLightChange();
-
+        // SunLightChange();
     }
     public void OnTriggerEnter(Collider other)
     {
