@@ -22,10 +22,11 @@ namespace Coherence.Generated
 		public float HealthR;
 		public Vector3 lastColor;
 		public int lastQuantity;
+		public bool firstTime;
 
 		public override string ToString()
 		{
-			return $"Tree_id1_TreeController_6230497222636945137(HealthB: {HealthB}, HealthG: {HealthG}, HealthR: {HealthR}, lastColor: {lastColor}, lastQuantity: {lastQuantity})";
+			return $"Tree_id1_TreeController_6230497222636945137(HealthB: {HealthB}, HealthG: {HealthG}, HealthR: {HealthR}, lastColor: {lastColor}, lastQuantity: {lastQuantity}, firstTime: {firstTime})";
 		}
 
 		public uint GetComponentType() => Definition.InternalTree_id1_TreeController_6230497222636945137;
@@ -79,6 +80,12 @@ namespace Coherence.Generated
 				lastQuantity = other.lastQuantity;
 			}
 			mask >>= 1;
+			if ((mask & 0x01) != 0)
+			{
+				Frame = other.Frame;
+				firstTime = other.firstTime;
+			}
+			mask >>= 1;
 			return this;
 		}
 
@@ -109,6 +116,11 @@ namespace Coherence.Generated
 				Coherence.Utils.Bounds.Check(data.lastQuantity, _lastQuantity_Min, _lastQuantity_Max, "Tree_id1_TreeController_6230497222636945137.lastQuantity");
 				data.lastQuantity = Coherence.Utils.Bounds.Clamp(data.lastQuantity, _lastQuantity_Min, _lastQuantity_Max);
 				bitStream.WriteIntegerRange(data.lastQuantity, 32, -2147483648);
+			}
+			mask >>= 1;
+			if (bitStream.WriteMask((mask & 0x01) != 0))
+			{
+				bitStream.WriteBool(data.firstTime);
 			}
 			mask >>= 1;
 		}
@@ -143,6 +155,11 @@ namespace Coherence.Generated
 				val.lastQuantity = bitStream.ReadIntegerRange(32, -2147483648);
 				mask |= 0b00000000000000000000000000010000;
 			}
+			if (bitStream.ReadMask())
+			{
+				val.firstTime = bitStream.ReadBool();
+				mask |= 0b00000000000000000000000000100000;
+			}
 			return (val, mask, null);
 		}
 		public static (Tree_id1_TreeController_6230497222636945137, uint, uint?) DeserializeArchetypeTree_c9d321b103129184eb302bb638fd65ac_Tree_id1_TreeController_6230497222636945137_LOD0(InProtocolBitStream bitStream)
@@ -173,6 +190,11 @@ namespace Coherence.Generated
 			{
 				val.lastQuantity = bitStream.ReadIntegerRange(32, -2147483648);
 				mask |= 0b00000000000000000000000000010000;
+			}
+			if (bitStream.ReadMask())
+			{
+				val.firstTime = bitStream.ReadBool();
+				mask |= 0b00000000000000000000000000100000;
 			}
 
 			return (val, mask, 0);

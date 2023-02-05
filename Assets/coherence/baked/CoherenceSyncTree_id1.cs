@@ -244,6 +244,43 @@ namespace Coherence.Generated
 		}
 	}
 
+	public class Binding_c9d321b103129184eb302bb638fd65ac_d5951b6b_31f8_4f8c_9a5b_94596eb7fae4 : BoolBinding
+	{
+		private TreeController CastedUnityComponent;		
+
+		protected override void OnBindingCloned()
+		{
+			CastedUnityComponent = (TreeController)UnityComponent;
+		}
+		public override string CoherenceComponentName => "Tree_id1_TreeController_6230497222636945137";
+
+		public override uint FieldMask => 0b00000000000000000000000000100000;
+
+		public override bool Value
+		{
+			get => (bool)(System.Boolean)(CastedUnityComponent.firstTime);
+			set => CastedUnityComponent.firstTime = (System.Boolean)(value);
+		}
+
+		protected override bool ReadComponentData(ICoherenceComponentData coherenceComponent)
+		{
+			var update = (Tree_id1_TreeController_6230497222636945137)coherenceComponent;
+			return update.firstTime;
+		}
+		
+		public override ICoherenceComponentData WriteComponentData(ICoherenceComponentData coherenceComponent)
+		{
+			var update = (Tree_id1_TreeController_6230497222636945137)coherenceComponent;
+			update.firstTime = Value;
+			return update;
+		}
+
+		public override ICoherenceComponentData CreateComponentData()
+		{
+			return new Tree_id1_TreeController_6230497222636945137();
+		}
+	}
+
 
 	[Preserve]
 	[AddComponentMenu("coherence/Baked/Baked 'Tree' (auto assigned)")]
@@ -254,7 +291,8 @@ namespace Coherence.Generated
 		private Logger logger;
 
 		// Cached targets for commands		
-		private TreeController Tree_id1_TreeController__char_46_RestoreHealthNet_ef71c32f_f905_4f7b_a7cf_278da698afe6_CommandTarget;
+		private TreeController Tree_id1_TreeController__char_46_RestoreHealthNet_ef71c32f_f905_4f7b_a7cf_278da698afe6_CommandTarget;		
+		private TreeController Tree_id1_TreeController__char_46_PanelEndGame_27bde456_5fc5_448a_9a2c_c9fa62de9960_CommandTarget;
 
 		private IClient client;
 		private CoherenceMonoBridge monoBridge => coherenceSync.MonoBridge;
@@ -274,6 +312,16 @@ namespace Coherence.Generated
 			else
 			{
 				logger.Error("Couldn't find command binding (RestoreHealthNet)");
+			}
+			if (coherenceSync.TryGetBindingByGuid("27bde456-5fc5-448a-9a2c-c9fa62de9960", "PanelEndGame", out Binding Tree_id1_TreeController__char_46_PanelEndGame_27bde456_5fc5_448a_9a2c_c9fa62de9960))
+			{
+				Tree_id1_TreeController__char_46_PanelEndGame_27bde456_5fc5_448a_9a2c_c9fa62de9960_CommandTarget = (TreeController)Tree_id1_TreeController__char_46_PanelEndGame_27bde456_5fc5_448a_9a2c_c9fa62de9960.UnityComponent;
+				coherenceSync.AddCommandRequestDelegate("TreeController.PanelEndGame", "()",
+				SendCommand_Tree_id1_TreeController__char_46_PanelEndGame_27bde456_5fc5_448a_9a2c_c9fa62de9960, ReceiveLocalCommand_Tree_id1_TreeController__char_46_PanelEndGame_27bde456_5fc5_448a_9a2c_c9fa62de9960, MessageTarget.All, Tree_id1_TreeController__char_46_PanelEndGame_27bde456_5fc5_448a_9a2c_c9fa62de9960_CommandTarget,false);
+			}
+			else
+			{
+				logger.Error("Couldn't find command binding (PanelEndGame)");
 			}
 			if (coherenceSync.TryGetBindingByGuid("ddce0dcc-34b1-4958-a0ff-ec70924658ac", "enabled", out Binding InternalTree_id1_UnityEngine__char_46_MeshRenderer_6944398059840426546_Tree_id1_UnityEngine__char_46_MeshRenderer_6944398059840426546_enabled))
 			{
@@ -335,6 +383,16 @@ namespace Coherence.Generated
 			{
 				logger.Error("Couldn't find binding (TreeController).lastQuantity");
 			}
+			if (coherenceSync.TryGetBindingByGuid("d5951b6b-31f8-4f8c-9a5b-94596eb7fae4", "firstTime", out Binding InternalTree_id1_TreeController_6230497222636945137_Tree_id1_TreeController_6230497222636945137_firstTime))
+			{
+				var clone = new Binding_c9d321b103129184eb302bb638fd65ac_d5951b6b_31f8_4f8c_9a5b_94596eb7fae4();
+				InternalTree_id1_TreeController_6230497222636945137_Tree_id1_TreeController_6230497222636945137_firstTime.CloneTo(clone);
+				coherenceSync.Bindings[coherenceSync.Bindings.IndexOf(InternalTree_id1_TreeController_6230497222636945137_Tree_id1_TreeController_6230497222636945137_firstTime)] = clone;
+			}
+			else
+			{
+				logger.Error("Couldn't find binding (TreeController).firstTime");
+			}
 		}
 
 		public override List<ICoherenceComponentData> CreateEntity()
@@ -384,6 +442,23 @@ namespace Coherence.Generated
 			var target = Tree_id1_TreeController__char_46_RestoreHealthNet_ef71c32f_f905_4f7b_a7cf_278da698afe6_CommandTarget;
 			target.RestoreHealthNet();
 		}
+		void SendCommand_Tree_id1_TreeController__char_46_PanelEndGame_27bde456_5fc5_448a_9a2c_c9fa62de9960(MessageTarget target, object[] args)
+		{
+			var command = new Tree_id1_TreeController__char_46_PanelEndGame_27bde456_5fc5_448a_9a2c_c9fa62de9960();
+			client.SendCommand(command, target, coherenceSync.EntityID);
+		}
+
+		void ReceiveLocalCommand_Tree_id1_TreeController__char_46_PanelEndGame_27bde456_5fc5_448a_9a2c_c9fa62de9960(MessageTarget target, object[] args)
+		{
+			var command = new Tree_id1_TreeController__char_46_PanelEndGame_27bde456_5fc5_448a_9a2c_c9fa62de9960();
+			ReceiveCommand_Tree_id1_TreeController__char_46_PanelEndGame_27bde456_5fc5_448a_9a2c_c9fa62de9960(command);
+		}
+
+		void ReceiveCommand_Tree_id1_TreeController__char_46_PanelEndGame_27bde456_5fc5_448a_9a2c_c9fa62de9960(Tree_id1_TreeController__char_46_PanelEndGame_27bde456_5fc5_448a_9a2c_c9fa62de9960 command)
+		{
+			var target = Tree_id1_TreeController__char_46_PanelEndGame_27bde456_5fc5_448a_9a2c_c9fa62de9960_CommandTarget;
+			target.PanelEndGame();
+		}
 
 		public override void ReceiveCommand(IEntityCommand command)
 		{
@@ -391,6 +466,9 @@ namespace Coherence.Generated
 			{
 				case Tree_id1_TreeController__char_46_RestoreHealthNet_ef71c32f_f905_4f7b_a7cf_278da698afe6 castedCommand:
 					ReceiveCommand_Tree_id1_TreeController__char_46_RestoreHealthNet_ef71c32f_f905_4f7b_a7cf_278da698afe6(castedCommand);
+					break;
+				case Tree_id1_TreeController__char_46_PanelEndGame_27bde456_5fc5_448a_9a2c_c9fa62de9960 castedCommand:
+					ReceiveCommand_Tree_id1_TreeController__char_46_PanelEndGame_27bde456_5fc5_448a_9a2c_c9fa62de9960(castedCommand);
 					break;
 				default:
 					logger.Warning($"[CoherenceSyncTree_id1] Unhandled command: {command.GetType()}.");

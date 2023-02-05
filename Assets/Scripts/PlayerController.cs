@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
     public Light myLight;
 
     public TrailRenderer trail;
+
+    public GameObject joinMessage;
     public string playerNameString;
     public int R = 255;
     public int G = 255;
@@ -43,6 +45,7 @@ public class PlayerController : MonoBehaviour
 
         playerNameString = WorldsConnectDialog.PlayerName;
         _rigidBody = GetComponent<Rigidbody>();
+        GameObject message =  Instantiate(joinMessage);
         SetInitialColor();
     }
 

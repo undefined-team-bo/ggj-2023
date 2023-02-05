@@ -16,7 +16,7 @@ namespace Coherence.Generated
 
 	public class Definition : IDefinition
 	{
-		public const string schemaId = "18dc5c0e0d405477c6a0d6ea78f8db61a7d3b669";
+		public const string schemaId = "0e1584a9c0c289a8dc19737d76b474756d7c646b";
 		public const uint InternalWorldPosition = 0;
 		public const uint InternalWorldOrientation = 1;
 		public const uint InternalLocalUser = 2;
@@ -143,7 +143,8 @@ namespace Coherence.Generated
 		public const uint InternalGenericCommand = 5;
 		public const uint InternalPlayer_id0_PlayerController__char_46_DropPotatoesNet_fd76e0f7_bc0a_40ff_a1ff_6b96f8401cf9 = 6;
 		public const uint InternalTree_id1_TreeController__char_46_RestoreHealthNet_ef71c32f_f905_4f7b_a7cf_278da698afe6 = 7;
-		public const uint InternalPotatoSpawner_id3_PotatoSpawnerController__char_46_SpawnPotato_f0f695e4_790e_4640_b183_0896fcb6efa4 = 8;
+		public const uint InternalTree_id1_TreeController__char_46_PanelEndGame_27bde456_5fc5_448a_9a2c_c9fa62de9960 = 8;
+		public const uint InternalPotatoSpawner_id3_PotatoSpawnerController__char_46_SpawnPotato_f0f695e4_790e_4640_b183_0896fcb6efa4 = 9;
 
 		private static readonly Dictionary<uint, string> componentNamesForTypeIds = new Dictionary<uint, string>() {
 			{ 0, "WorldPosition" },
@@ -872,6 +873,8 @@ namespace Coherence.Generated
 					return Player_id0_PlayerController__char_46_DropPotatoesNet_fd76e0f7_bc0a_40ff_a1ff_6b96f8401cf9.Deserialize(bitStream);
 				case Definition.InternalTree_id1_TreeController__char_46_RestoreHealthNet_ef71c32f_f905_4f7b_a7cf_278da698afe6:
 					return Tree_id1_TreeController__char_46_RestoreHealthNet_ef71c32f_f905_4f7b_a7cf_278da698afe6.Deserialize(bitStream);
+				case Definition.InternalTree_id1_TreeController__char_46_PanelEndGame_27bde456_5fc5_448a_9a2c_c9fa62de9960:
+					return Tree_id1_TreeController__char_46_PanelEndGame_27bde456_5fc5_448a_9a2c_c9fa62de9960.Deserialize(bitStream);
 				case Definition.InternalPotatoSpawner_id3_PotatoSpawnerController__char_46_SpawnPotato_f0f695e4_790e_4640_b183_0896fcb6efa4:
 					return PotatoSpawner_id3_PotatoSpawnerController__char_46_SpawnPotato_f0f695e4_790e_4640_b183_0896fcb6efa4.Deserialize(bitStream);
 				default:
@@ -958,6 +961,9 @@ namespace Coherence.Generated
 					break;
 				case Definition.InternalTree_id1_TreeController__char_46_RestoreHealthNet_ef71c32f_f905_4f7b_a7cf_278da698afe6:
 					Tree_id1_TreeController__char_46_RestoreHealthNet_ef71c32f_f905_4f7b_a7cf_278da698afe6.Serialize((Tree_id1_TreeController__char_46_RestoreHealthNet_ef71c32f_f905_4f7b_a7cf_278da698afe6)data, bitStream);
+					break;
+				case Definition.InternalTree_id1_TreeController__char_46_PanelEndGame_27bde456_5fc5_448a_9a2c_c9fa62de9960:
+					Tree_id1_TreeController__char_46_PanelEndGame_27bde456_5fc5_448a_9a2c_c9fa62de9960.Serialize((Tree_id1_TreeController__char_46_PanelEndGame_27bde456_5fc5_448a_9a2c_c9fa62de9960)data, bitStream);
 					break;
 				case Definition.InternalPotatoSpawner_id3_PotatoSpawnerController__char_46_SpawnPotato_f0f695e4_790e_4640_b183_0896fcb6efa4:
 					PotatoSpawner_id3_PotatoSpawnerController__char_46_SpawnPotato_f0f695e4_790e_4640_b183_0896fcb6efa4.Serialize((PotatoSpawner_id3_PotatoSpawnerController__char_46_SpawnPotato_f0f695e4_790e_4640_b183_0896fcb6efa4)data, bitStream);

@@ -32,6 +32,9 @@ public class TreeController : MonoBehaviour
 
     private float updateLightMax = 3f;
     private float updateLightTime = 0f;
+
+    public GameObject endGamePanel;
+    public bool firstTime = true;
     private void Awake()
     {
         _monoBridge = FindObjectOfType<CoherenceMonoBridge>();
@@ -69,7 +72,7 @@ public class TreeController : MonoBehaviour
         IsConnected = player != null;
         if (IsConnected)
         {
-            updateLightTime  += Time.deltaTime;
+            updateLightTime += Time.deltaTime;
             if (updateLightTime > updateLightMax)
             {
                 updateLightTime = 0;
@@ -91,7 +94,21 @@ public class TreeController : MonoBehaviour
             if (HealthB < 0)
                 HealthB = 0;
             // }
+            if (HealthR >= 250 && HealthG >= 250 && HealthB >= 250 & !firstTime)
+            {
+                _coherenceSync = this.gameObject.GetComponent<CoherenceSync>();
+                _coherenceSync.SendCommand<TreeController>(nameof(PanelEndGame), MessageTarget.All);
+                firstTime = true;
+            }
+            if (HealthR < 250 || HealthG < 250 || HealthB < 250)
+            {
+                firstTime = false;
+            }
         }
+    }
+    public void PanelEndGame()
+    {
+        GameObject endGame = Instantiate(endGamePanel);
     }
     public void SunLightChange()
     {
