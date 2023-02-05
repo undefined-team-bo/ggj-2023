@@ -22,6 +22,43 @@ namespace Coherence.Generated
 	using Logger = Coherence.Log.Logger;
 	using UnityEngine.Scripting;
 
+	public class Binding_2f37b1be90c58714f91aba02c042dfd9_11917f7d_3e5c_4e3d_b1fb_7fc63f6054d4 : BoolBinding
+	{
+		private Move CastedUnityComponent;		
+
+		protected override void OnBindingCloned()
+		{
+			CastedUnityComponent = (Move)UnityComponent;
+		}
+		public override string CoherenceComponentName => "Player_id0_Move__1553591653173155479";
+
+		public override uint FieldMask => 0b00000000000000000000000000000001;
+
+		public override bool Value
+		{
+			get => (bool)(System.Boolean)(CastedUnityComponent.isDashing);
+			set => CastedUnityComponent.isDashing = (System.Boolean)(value);
+		}
+
+		protected override bool ReadComponentData(ICoherenceComponentData coherenceComponent)
+		{
+			var update = (Player_id0_Move__1553591653173155479)coherenceComponent;
+			return update.isDashing;
+		}
+		
+		public override ICoherenceComponentData WriteComponentData(ICoherenceComponentData coherenceComponent)
+		{
+			var update = (Player_id0_Move__1553591653173155479)coherenceComponent;
+			update.isDashing = Value;
+			return update;
+		}
+
+		public override ICoherenceComponentData CreateComponentData()
+		{
+			return new Player_id0_Move__1553591653173155479();
+		}
+	}
+
 	public class Binding_2f37b1be90c58714f91aba02c042dfd9_c44701fd_3575_4d4b_931b_dcb485a4b966 : IntBinding
 	{
 		private PlayerController CastedUnityComponent;		
@@ -170,6 +207,43 @@ namespace Coherence.Generated
 		}
 	}
 
+	public class Binding_2f37b1be90c58714f91aba02c042dfd9_6dd95047_6bc4_422c_bff5_de8c361f9c71 : StringBinding
+	{
+		private PlayerController CastedUnityComponent;		
+
+		protected override void OnBindingCloned()
+		{
+			CastedUnityComponent = (PlayerController)UnityComponent;
+		}
+		public override string CoherenceComponentName => "Player_id0_PlayerController_7430135086103731642";
+
+		public override uint FieldMask => 0b00000000000000000000000000010000;
+
+		public override string Value
+		{
+			get => (string)(System.String)(CastedUnityComponent.playerNameString);
+			set => CastedUnityComponent.playerNameString = (System.String)(value);
+		}
+
+		protected override string ReadComponentData(ICoherenceComponentData coherenceComponent)
+		{
+			var update = (Player_id0_PlayerController_7430135086103731642)coherenceComponent;
+			return update.playerNameString;
+		}
+		
+		public override ICoherenceComponentData WriteComponentData(ICoherenceComponentData coherenceComponent)
+		{
+			var update = (Player_id0_PlayerController_7430135086103731642)coherenceComponent;
+			update.playerNameString = Value;
+			return update;
+		}
+
+		public override ICoherenceComponentData CreateComponentData()
+		{
+			return new Player_id0_PlayerController_7430135086103731642();
+		}
+	}
+
 
 	[Preserve]
 	[AddComponentMenu("coherence/Baked/Baked 'Player' (auto assigned)")]
@@ -179,7 +253,8 @@ namespace Coherence.Generated
 		private CoherenceSync coherenceSync;
 		private Logger logger;
 
-		// Cached targets for commands
+		// Cached targets for commands		
+		private PlayerController Player_id0_PlayerController__char_46_DropPotatoesNet_fd76e0f7_bc0a_40ff_a1ff_6b96f8401cf9_CommandTarget;
 
 		private IClient client;
 		private CoherenceMonoBridge monoBridge => coherenceSync.MonoBridge;
@@ -190,6 +265,26 @@ namespace Coherence.Generated
 			coherenceSync.usingReflection = false;
 
 			logger = coherenceSync.logger.With<CoherenceSyncPlayer_id0>();
+			if (coherenceSync.TryGetBindingByGuid("fd76e0f7-bc0a-40ff-a1ff-6b96f8401cf9", "DropPotatoesNet", out Binding Player_id0_PlayerController__char_46_DropPotatoesNet_fd76e0f7_bc0a_40ff_a1ff_6b96f8401cf9))
+			{
+				Player_id0_PlayerController__char_46_DropPotatoesNet_fd76e0f7_bc0a_40ff_a1ff_6b96f8401cf9_CommandTarget = (PlayerController)Player_id0_PlayerController__char_46_DropPotatoesNet_fd76e0f7_bc0a_40ff_a1ff_6b96f8401cf9.UnityComponent;
+				coherenceSync.AddCommandRequestDelegate("PlayerController.DropPotatoesNet", "()",
+				SendCommand_Player_id0_PlayerController__char_46_DropPotatoesNet_fd76e0f7_bc0a_40ff_a1ff_6b96f8401cf9, ReceiveLocalCommand_Player_id0_PlayerController__char_46_DropPotatoesNet_fd76e0f7_bc0a_40ff_a1ff_6b96f8401cf9, MessageTarget.AuthorityOnly, Player_id0_PlayerController__char_46_DropPotatoesNet_fd76e0f7_bc0a_40ff_a1ff_6b96f8401cf9_CommandTarget,false);
+			}
+			else
+			{
+				logger.Error("Couldn't find command binding (DropPotatoesNet)");
+			}
+			if (coherenceSync.TryGetBindingByGuid("11917f7d-3e5c-4e3d-b1fb-7fc63f6054d4", "isDashing", out Binding InternalPlayer_id0_Move__1553591653173155479_Player_id0_Move__1553591653173155479_isDashing))
+			{
+				var clone = new Binding_2f37b1be90c58714f91aba02c042dfd9_11917f7d_3e5c_4e3d_b1fb_7fc63f6054d4();
+				InternalPlayer_id0_Move__1553591653173155479_Player_id0_Move__1553591653173155479_isDashing.CloneTo(clone);
+				coherenceSync.Bindings[coherenceSync.Bindings.IndexOf(InternalPlayer_id0_Move__1553591653173155479_Player_id0_Move__1553591653173155479_isDashing)] = clone;
+			}
+			else
+			{
+				logger.Error("Couldn't find binding (Move).isDashing");
+			}
 			if (coherenceSync.TryGetBindingByGuid("c44701fd-3575-4d4b-931b-dcb485a4b966", "actualInventory", out Binding InternalPlayer_id0_PlayerController_7430135086103731642_Player_id0_PlayerController_7430135086103731642_actualInventory))
 			{
 				var clone = new Binding_2f37b1be90c58714f91aba02c042dfd9_c44701fd_3575_4d4b_931b_dcb485a4b966();
@@ -230,6 +325,16 @@ namespace Coherence.Generated
 			{
 				logger.Error("Couldn't find binding (PlayerController).R");
 			}
+			if (coherenceSync.TryGetBindingByGuid("6dd95047-6bc4-422c-bff5-de8c361f9c71", "playerNameString", out Binding InternalPlayer_id0_PlayerController_7430135086103731642_Player_id0_PlayerController_7430135086103731642_playerNameString))
+			{
+				var clone = new Binding_2f37b1be90c58714f91aba02c042dfd9_6dd95047_6bc4_422c_bff5_de8c361f9c71();
+				InternalPlayer_id0_PlayerController_7430135086103731642_Player_id0_PlayerController_7430135086103731642_playerNameString.CloneTo(clone);
+				coherenceSync.Bindings[coherenceSync.Bindings.IndexOf(InternalPlayer_id0_PlayerController_7430135086103731642_Player_id0_PlayerController_7430135086103731642_playerNameString)] = clone;
+			}
+			else
+			{
+				logger.Error("Couldn't find binding (PlayerController).playerNameString");
+			}
 		}
 
 		public override List<ICoherenceComponentData> CreateEntity()
@@ -262,11 +367,31 @@ namespace Coherence.Generated
 			}
 			this.client = client;
 		}
+		void SendCommand_Player_id0_PlayerController__char_46_DropPotatoesNet_fd76e0f7_bc0a_40ff_a1ff_6b96f8401cf9(MessageTarget target, object[] args)
+		{
+			var command = new Player_id0_PlayerController__char_46_DropPotatoesNet_fd76e0f7_bc0a_40ff_a1ff_6b96f8401cf9();
+			client.SendCommand(command, target, coherenceSync.EntityID);
+		}
+
+		void ReceiveLocalCommand_Player_id0_PlayerController__char_46_DropPotatoesNet_fd76e0f7_bc0a_40ff_a1ff_6b96f8401cf9(MessageTarget target, object[] args)
+		{
+			var command = new Player_id0_PlayerController__char_46_DropPotatoesNet_fd76e0f7_bc0a_40ff_a1ff_6b96f8401cf9();
+			ReceiveCommand_Player_id0_PlayerController__char_46_DropPotatoesNet_fd76e0f7_bc0a_40ff_a1ff_6b96f8401cf9(command);
+		}
+
+		void ReceiveCommand_Player_id0_PlayerController__char_46_DropPotatoesNet_fd76e0f7_bc0a_40ff_a1ff_6b96f8401cf9(Player_id0_PlayerController__char_46_DropPotatoesNet_fd76e0f7_bc0a_40ff_a1ff_6b96f8401cf9 command)
+		{
+			var target = Player_id0_PlayerController__char_46_DropPotatoesNet_fd76e0f7_bc0a_40ff_a1ff_6b96f8401cf9_CommandTarget;
+			target.DropPotatoesNet();
+		}
 
 		public override void ReceiveCommand(IEntityCommand command)
 		{
 			switch(command)
 			{
+				case Player_id0_PlayerController__char_46_DropPotatoesNet_fd76e0f7_bc0a_40ff_a1ff_6b96f8401cf9 castedCommand:
+					ReceiveCommand_Player_id0_PlayerController__char_46_DropPotatoesNet_fd76e0f7_bc0a_40ff_a1ff_6b96f8401cf9(castedCommand);
+					break;
 				default:
 					logger.Warning($"[CoherenceSyncPlayer_id0] Unhandled command: {command.GetType()}.");
 					break;

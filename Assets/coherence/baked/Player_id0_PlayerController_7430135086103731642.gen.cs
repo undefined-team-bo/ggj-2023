@@ -21,10 +21,11 @@ namespace Coherence.Generated
 		public int B;
 		public int G;
 		public int R;
+		public string playerNameString;
 
 		public override string ToString()
 		{
-			return $"Player_id0_PlayerController_7430135086103731642(actualInventory: {actualInventory}, B: {B}, G: {G}, R: {R})";
+			return $"Player_id0_PlayerController_7430135086103731642(actualInventory: {actualInventory}, B: {B}, G: {G}, R: {R}, playerNameString: {playerNameString})";
 		}
 
 		public uint GetComponentType() => Definition.InternalPlayer_id0_PlayerController_7430135086103731642;
@@ -78,6 +79,12 @@ namespace Coherence.Generated
 				R = other.R;
 			}
 			mask >>= 1;
+			if ((mask & 0x01) != 0)
+			{
+				Frame = other.Frame;
+				playerNameString = other.playerNameString;
+			}
+			mask >>= 1;
 			return this;
 		}
 
@@ -111,6 +118,11 @@ namespace Coherence.Generated
 				bitStream.WriteIntegerRange(data.R, 32, -2147483648);
 			}
 			mask >>= 1;
+			if (bitStream.WriteMask((mask & 0x01) != 0))
+			{
+				bitStream.WriteShortString(data.playerNameString);
+			}
+			mask >>= 1;
 		}
 
 		public static (Player_id0_PlayerController_7430135086103731642, uint, uint?) Deserialize(InProtocolBitStream bitStream)
@@ -138,6 +150,11 @@ namespace Coherence.Generated
 				val.R = bitStream.ReadIntegerRange(32, -2147483648);
 				mask |= 0b00000000000000000000000000001000;
 			}
+			if (bitStream.ReadMask())
+			{
+				val.playerNameString = bitStream.ReadShortString();
+				mask |= 0b00000000000000000000000000010000;
+			}
 			return (val, mask, null);
 		}
 		public static (Player_id0_PlayerController_7430135086103731642, uint, uint?) DeserializeArchetypePlayer_2f37b1be90c58714f91aba02c042dfd9_Player_id0_PlayerController_7430135086103731642_LOD0(InProtocolBitStream bitStream)
@@ -163,6 +180,11 @@ namespace Coherence.Generated
 			{
 				val.R = bitStream.ReadIntegerRange(32, -2147483648);
 				mask |= 0b00000000000000000000000000001000;
+			}
+			if (bitStream.ReadMask())
+			{
+				val.playerNameString = bitStream.ReadShortString();
+				mask |= 0b00000000000000000000000000010000;
 			}
 
 			return (val, mask, 0);

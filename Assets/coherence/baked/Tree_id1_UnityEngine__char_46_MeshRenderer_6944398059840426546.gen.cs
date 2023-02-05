@@ -15,16 +15,16 @@ namespace Coherence.Generated
 	using Coherence.Toolkit;
 	using UnityEngine;
 
-	public struct WorldOrientation : ICoherenceComponentData
+	public struct Tree_id1_UnityEngine__char_46_MeshRenderer_6944398059840426546 : ICoherenceComponentData
 	{
-		public Quaternion value;
+		public bool enabled;
 
 		public override string ToString()
 		{
-			return $"WorldOrientation(value: {value})";
+			return $"Tree_id1_UnityEngine__char_46_MeshRenderer_6944398059840426546(enabled: {enabled})";
 		}
 
-		public uint GetComponentType() => Definition.InternalWorldOrientation;
+		public uint GetComponentType() => Definition.InternalTree_id1_UnityEngine__char_46_MeshRenderer_6944398059840426546;
 
 		public const int order = 0;
 
@@ -42,68 +42,44 @@ namespace Coherence.Generated
 
 		public ICoherenceComponentData MergeWith(ICoherenceComponentData data, uint mask)
 		{
-			var other = (WorldOrientation)data;
+			var other = (Tree_id1_UnityEngine__char_46_MeshRenderer_6944398059840426546)data;
 			if ((mask & 0x01) != 0)
 			{
 				Frame = other.Frame;
-				value = other.value;
+				enabled = other.enabled;
 			}
 			mask >>= 1;
 			return this;
 		}
 
-		public static void Serialize(WorldOrientation data, uint mask, IOutProtocolBitStream bitStream)
+		public static void Serialize(Tree_id1_UnityEngine__char_46_MeshRenderer_6944398059840426546 data, uint mask, IOutProtocolBitStream bitStream)
 		{
 			if (bitStream.WriteMask((mask & 0x01) != 0))
 			{
-				bitStream.WriteQuaternion((data.value.ToCoreQuaternion()), 32);
+				bitStream.WriteBool(data.enabled);
 			}
 			mask >>= 1;
 		}
 
-		public static (WorldOrientation, uint, uint?) Deserialize(InProtocolBitStream bitStream)
+		public static (Tree_id1_UnityEngine__char_46_MeshRenderer_6944398059840426546, uint, uint?) Deserialize(InProtocolBitStream bitStream)
 		{
 			var mask = (uint)0;
-			var val = new WorldOrientation();
+			var val = new Tree_id1_UnityEngine__char_46_MeshRenderer_6944398059840426546();
 	
 			if (bitStream.ReadMask())
 			{
-				val.value = (bitStream.ReadQuaternion(32)).ToUnityQuaternion();
+				val.enabled = bitStream.ReadBool();
 				mask |= 0b00000000000000000000000000000001;
 			}
 			return (val, mask, null);
 		}
-		public static (WorldOrientation, uint, uint?) DeserializeArchetypePlayer_2f37b1be90c58714f91aba02c042dfd9_WorldOrientation_LOD0(InProtocolBitStream bitStream)
+		public static (Tree_id1_UnityEngine__char_46_MeshRenderer_6944398059840426546, uint, uint?) DeserializeArchetypeTree_c9d321b103129184eb302bb638fd65ac_Tree_id1_UnityEngine__char_46_MeshRenderer_6944398059840426546_LOD0(InProtocolBitStream bitStream)
 		{
 			var mask = (uint)0;
-			var val = new WorldOrientation();
+			var val = new Tree_id1_UnityEngine__char_46_MeshRenderer_6944398059840426546();
 			if (bitStream.ReadMask())
 			{
-				val.value = (bitStream.ReadQuaternion(32)).ToUnityQuaternion();
-				mask |= 0b00000000000000000000000000000001;
-			}
-
-			return (val, mask, 0);
-		}
-		public static (WorldOrientation, uint, uint?) DeserializeArchetypeTree_c9d321b103129184eb302bb638fd65ac_WorldOrientation_LOD0(InProtocolBitStream bitStream)
-		{
-			var mask = (uint)0;
-			var val = new WorldOrientation();
-			if (bitStream.ReadMask())
-			{
-				val.value = (bitStream.ReadQuaternion(32)).ToUnityQuaternion();
-				mask |= 0b00000000000000000000000000000001;
-			}
-
-			return (val, mask, 0);
-		}
-		public static (WorldOrientation, uint, uint?) DeserializeArchetypePotato_7b26dea2e6325194797da1fea6060743_WorldOrientation_LOD0(InProtocolBitStream bitStream)
-		{
-			var mask = (uint)0;
-			var val = new WorldOrientation();
-			if (bitStream.ReadMask())
-			{
-				val.value = (bitStream.ReadQuaternion(32)).ToUnityQuaternion();
+				val.enabled = bitStream.ReadBool();
 				mask |= 0b00000000000000000000000000000001;
 			}
 
@@ -119,7 +95,7 @@ namespace Coherence.Generated
 		/// </summary>
 		public void ResetByteArrays(ICoherenceComponentData lastSent, uint mask)
 		{
-			var last = lastSent as WorldOrientation?;
+			var last = lastSent as Tree_id1_UnityEngine__char_46_MeshRenderer_6944398059840426546?;
 	
 		}
 	}
