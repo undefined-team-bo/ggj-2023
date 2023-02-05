@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   versionInfo: {fileID: 11400000, guid: 2191b6f902c97477baa32a7919010503, type: 2}
   runtimeKey: cee897b1dce244aabc641d2ca6670cd2
-  schemaID: 18dc5c0e0d405477c6a0d6ea78f8db61a7d3b669
+  schemaID: 8b3cb0a37f973eee5af49a30f864b39078f86e0a
   simulatorSlug: 
   localHost: 127.0.0.1
   localWorldUDPPort: 32001
@@ -26,9 +26,9 @@ MonoBehaviour:
   worldsAPIPort: 64002
   localHttpServerHost: localhost
   localHttpServerPort: 42006
-  localDevelopmentMode: 1
+  localDevelopmentMode: 0
   useDebugStreams: 0
   organizationID: cfem3i5bo1hpmarb7nh0
   projectID: cfem3i5bo1hpmarb7nhg
-  projectName: Default Project
+  projectName: GGJ 2023
   playApiEndpoint: https://api.prod.coherence.io/v1/play
